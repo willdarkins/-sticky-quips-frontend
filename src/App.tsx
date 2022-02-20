@@ -1,30 +1,32 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import DUMMY_NOTES from './SEED_NOTES';
 
 function App() {
 const [ notesList, setNotesList ] = useState<any []>([])
-const getNotes = async() => {
-  try {
-    const response = await axios.get(
-      `http://localhost:5000/notes`
-    )
-    //changing state the state variable of notesList to upload data from the API
-    setNotesList(response.data.notes)
-  } catch (err) {
-    console.error(err)
-  }
-}
 
+useEffect(() => {
+  setNotesList(DUMMY_NOTES)
+}, [])
+
+
+// const getNotes = async() => {
+//   try {
+//     const response = await axios.get(
+//       `http://localhost:5000/notes`
+//     )
+//     //changing state the state variable of notesList to upload data from the API
+//     setNotesList(response.data.notes)
+//   } catch (err) {
+//     console.error(err)
+//   }
+// }
+console.log(notesList)
   return (
     <div className="App">
       <div>Notes Application</div>
-      <div>
-        <button onClick={getNotes}>
-          Click Me
-        </button>
-      </div>
       <div>
         {/* SHOW DETAILS DETAILS OF FIRST ELEMENT */}
         <h4>{notesList[0]?.text}</h4>
