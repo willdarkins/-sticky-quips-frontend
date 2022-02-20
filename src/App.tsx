@@ -27,10 +27,15 @@ console.log(notesList)
   return (
     <div className="App">
       <div>Notes Application</div>
-      <div>
-        {/* SHOW DETAILS DETAILS OF FIRST ELEMENT */}
-        <h4>{notesList[0]?.text}</h4>
-        <h5>{notesList[0]?.link}</h5>
+      <div className="notes-list">
+        {notesList.map((noteItem, index) => {
+          return(
+            <div>
+              <h4>{noteItem?.text}</h4>
+              <h5>{noteItem?.link}</h5>
+            </div>
+          )
+        })}
       </div>
     </div>
   );
