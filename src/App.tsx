@@ -1,5 +1,6 @@
 import React from 'react';
 // import axios from 'axios';
+import Note from './components/Note/Note';
 import './App.css';
 import { useState, useEffect } from 'react';
 import DUMMY_NOTES from './SEED_NOTES';
@@ -30,10 +31,7 @@ console.log(notesList)
       <div className="notes-list">
         {notesList.map((noteItem, index) => {
           return(
-            <div key={index}>
-              <h4>{noteItem?.text}</h4>
-              <h5>{noteItem?.link}</h5>
-            </div>
+            <Note note={noteItem}/>
           )
         })}
       </div>
