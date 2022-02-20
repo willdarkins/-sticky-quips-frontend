@@ -31,7 +31,7 @@ console.log(notesList)
       <div className="notes-list">
         {notesList.map((noteItem, index) => {
           return(
-            <Note note={noteItem}/>
+            <Note note={noteItem} key={index}/>
           )
         })}
       </div>

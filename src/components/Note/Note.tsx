@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import INote from '../../interfaces/note.interface'
-import 'Note.css'
+import './Note.css'
 
 //using TypeScript to identify what our props will be passing to the Note component
 type Props = {
