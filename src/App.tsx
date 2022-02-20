@@ -9,6 +9,7 @@ const getNotes = async() => {
     const response = await axios.get(
       `http://localhost:5000/notes`
     )
+    console.log(response)
   } catch (err) {
     console.error(err)
   }
