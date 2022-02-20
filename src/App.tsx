@@ -30,7 +30,7 @@ console.log(notesList)
       <div className="notes-list">
         {notesList.map((noteItem, index) => {
           return(
-            <div>
+            <div key={index}>
               <h4>{noteItem?.text}</h4>
               <h5>{noteItem?.link}</h5>
             </div>
