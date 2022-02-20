@@ -1,17 +1,24 @@
 import React from 'react';
+import axios from 'axios';
 import './App.css';
 
 function App() {
 
-const getNotes = () => {
-  console.log('I\'m incredible at fucking')
+const getNotes = async() => {
+  try {
+    const response = await axios.get(
+      `http://localhost:5000/notes`
+    )
+  } catch (err) {
+    console.error(err)
+  }
 }
 
   return (
     <div className="App">
       <div>Notes Application</div>
       <div>
-        <button onClick={() => {getNotes}}>
+        <button onClick={getNotes}>
           Click Me
         </button>
       </div>
