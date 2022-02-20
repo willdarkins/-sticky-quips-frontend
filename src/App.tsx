@@ -1,8 +1,8 @@
 import React from 'react';
 // import axios from 'axios';
-import Note from './components/Note/Note';
 import './App.css';
 import { useState, useEffect } from 'react';
+import Note from './components/Note/Note';
 import DUMMY_NOTES from './SEED_NOTES';
 
 function App() {
