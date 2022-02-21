@@ -4,23 +4,24 @@ import './Note.css'
 
 //using TypeScript to identify what our props will be passing to the Note component
 type Props = {
-    note: INote
-}
-
-//function to grab textcontent from note after user clicks out of div
-const noteTextUpdated = (event: FocusEvent<HTMLDivElement>) => {
-    console.log('Note text has changed')
-    console.log(event.currentTarget.textContent)
+    note: INote;
+    onNoteUpdate: Function
 }
 
 //the FC(Functional Component) will take in the Props type and de-construct the note property to pass all the info from INote
-const Note: FC<Props> = ({ note }) => {
+const Note: FC<Props> = ({ note, onNoteUpdate }) => {
+
+    //function to grab textcontent from note after user clicks out of div
+    const noteTextUpdated = (event: FocusEvent<HTMLDivElement>) => {
+        console.log('Note text has changed')
+        onNoteUpdate(event.currentTarget.textContent)
+    }
     return (
         <div className='note'>
             <div className='note__text'
-            contentEditable={true}
-            suppressContentEditableWarning={true}
-            onBlur={noteTextUpdated}
+                contentEditable={true}
+                suppressContentEditableWarning={true}
+                onBlur={noteTextUpdated}
             >{note.text}</div>
             <div className='note__link'>
                 <a href={note.link}>{note.link}</a>
