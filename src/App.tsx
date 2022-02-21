@@ -28,7 +28,7 @@ function App() {
 
   //updating note item by mapping over each of the notes in the notesList array, then comparing...
   //the text/links based on their respective ids... if the updatedNote id matches the origin note id, it returns the update...
-  //otherwise, the un-edited notes are returned to the array
+  //otherwise, the un-edited notes are returned to the array... we then use the setNotesList function from useState to update the array state
   const updateNoteItem = (updatedNote: INote) => {
     const updatedList = notesList.map((noteItem: INote) => {
       if(noteItem._id === updatedNote._id){
@@ -36,6 +36,7 @@ function App() {
       }
       return noteItem
     })
+    setNotesList(updatedList)
   }
 
   return (
