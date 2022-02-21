@@ -1,0 +1,33 @@
+.note{
+    background-color: #feff9c;
+    color: black;
+    height: 160px;
+    width: 160px;
+    margin: 16px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transform: rotate(-6deg);
+}
+
+.note:nth-child(even){
+    top: 10px;
+    position: relative;
+    background-color: #7afcff;
+    transform: rotate(4deg);
+}
+
+.note:nth-child(3n){
+    top: 10px;
+    position: relative;
+    background-color: #ff7eb9;
+    transform: rotate(-3deg);
+}
+
+.note__text{
+    flex: 1;
+}
+
+.note__link{
+    display: none;
+}
