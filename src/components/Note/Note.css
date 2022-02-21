@@ -5,6 +5,7 @@
     height: 160px;
     width: 160px;
     margin: 16px;
+    padding: 16px;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -22,7 +23,7 @@
 }
 
 .note:nth-child(3n){
-    top: 10px;
+    top: -5px;
     position: relative;
     background-color: #ff7eb9;
     transform: rotate(-3deg);
