@@ -5,7 +5,7 @@ import './Note.css'
 //using TypeScript to identify what our props will be passing to the Note component
 type Props = {
     note: INote;
-    onNoteUpdate: Function
+    onNoteUpdate: (note: INote) => void;
 }
 
 //the FC(Functional Component) will take in the Props type and de-construct the note property to pass all the info from INote
@@ -13,8 +13,14 @@ const Note: FC<Props> = ({ note, onNoteUpdate }) => {
 
     //function to grab textcontent from note after user clicks out of div
     const noteTextUpdated = (event: FocusEvent<HTMLDivElement>) => {
-        console.log('Note text has changed')
-        onNoteUpdate(event.currentTarget.textContent)
+        //captured new value in variable then input that variable into an updated object that will spread the old text and link...
+        //then use the onNoteUpdate function passed from App.tsx to pass the information along
+        const newTextValue = event.currentTarget.textContent
+        const updatedNoteObject: INote = {
+            ...note,
+            text: newTextValue || ''
+        };
+        onNoteUpdate(updatedNoteObject);
     }
     return (
         <div className='note'>

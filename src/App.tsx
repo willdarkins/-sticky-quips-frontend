@@ -4,6 +4,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import Note from './components/Note/Note';
 import DUMMY_NOTES from './SEED_NOTES';
+import INote from './interfaces/note.interface';
 
 function App() {
   const [notesList, setNotesList] = useState<any[]>([])
@@ -25,9 +26,9 @@ function App() {
   //   }
   // }
 
-  const updateNoteItem = (text: String) => {
+  const updateNoteItem = (updatedNote: INote) => {
     console.log('value updated in the App component')
-    console.log(text)
+    console.log(updatedNote)
   }
 
   return (
