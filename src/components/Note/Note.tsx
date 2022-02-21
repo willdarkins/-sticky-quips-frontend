@@ -15,7 +15,11 @@ const Note: FC<Props> = ({ note, onNoteUpdate }) => {
     const noteTextUpdated = (event: FocusEvent<HTMLDivElement>) => {
         //captured new value in variable then input that variable into an updated object that will spread the old text and link...
         //then use the onNoteUpdate function passed from App.tsx to pass the information along
+        //we also run a conditional to make sure the text value has been changed before updating the note... this is for local storage
         const newTextValue = event.currentTarget.textContent
+        if(newTextValue === note.text){
+            return;
+        }
         const updatedNoteObject: INote = {
             ...note,
             text: newTextValue || ''
