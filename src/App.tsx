@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { useState, useEffect } from 'react';
 import Note from './components/Note/Note';
-import { getNotes } from './services/notesService';
+import { getNotes, createNote } from './services/notesService';
 import INote from './interfaces/note.interface';
 import { Button, FloatingLabel, Form, Modal } from 'react-bootstrap';
 
@@ -17,7 +17,13 @@ function App() {
   })
 
   //functions to close and open modals
-  const handleCloseNoteModal = () => setshowNoteModal(false);
+  const handleCloseNoteModal = () => {
+    setNewNote({
+      text: '',
+      link: ''
+    })
+    setshowNoteModal(false)
+  }
   const handleShowNoteModal = () => setshowNoteModal(true);
 
   //calling getNotesFromServer when app fires up first time 
@@ -43,6 +49,12 @@ function App() {
       return noteItem
     })
     setNotesList(updatedList) //updating state of notesList
+  }
+
+  const addNote = async () => {
+    const savedNote = await createNote(newNote)
+    setNotesList([...notesList, savedNote])
+    handleCloseNoteModal();
   }
 
   return (
@@ -85,10 +97,10 @@ function App() {
           </FloatingLabel>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseNoteModal}>
+          <Button variant="secondary" onClick={addNote}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleCloseNoteModal}>
+          <Button variant="primary" onClick={addNote}>
             Create
           </Button>
         </Modal.Footer>

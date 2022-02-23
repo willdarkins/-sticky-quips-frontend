@@ -27,7 +27,6 @@ const Note: FC<Props> = ({ note, onNoteUpdate }) => {
         };
         onNoteUpdate(updatedNoteObject);
     };
-    console.log('value of isFocused is', isFocused, 'note text is', note.text)
     return (
         <div className={isFocused ? 'note note--focused' : 'note'}>
             <div className='note__text'
