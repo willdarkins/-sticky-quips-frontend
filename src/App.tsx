@@ -4,9 +4,17 @@ import { useState, useEffect } from 'react';
 import Note from './components/Note/Note';
 import { getNotes } from './services/notesService';
 import INote from './interfaces/note.interface';
+import { Button, Modal } from 'react-bootstrap';
 
 function App() {
+  //state to handle notes array
   const [notesList, setNotesList] = useState<INote[]>([])
+  //state to handle showing and closing modal to write a note
+  const [showNoteModal, setshowNoteModal] = useState(false);
+
+  //functions to close and open modals
+  const handleCloseNoteModal = () => setshowNoteModal(false);
+  const handleShowNoteModal = () => setshowNoteModal(true);
 
   //calling getNotesFromServer when app fires up first time 
   useEffect(() => {
@@ -35,6 +43,23 @@ function App() {
 
   return (
     <div className="App">
+       <Button variant="primary" onClick={handleShowNoteModal}>
+        Launch demo modal
+      </Button>
+      <Modal show={showNoteModal} onHide={handleCloseNoteModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseNoteModal}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleCloseNoteModal}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <div className="notes-list">
         {notesList.map((noteItem, index) => {
           return (
