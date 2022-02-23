@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import './App.css';
 import { useState, useEffect } from 'react';
 import Note from './components/Note/Note';
@@ -12,13 +12,14 @@ function App() {
   //App component runs first time... BUT if the list from local storage is present we will parse that list...
   //then use the setNotesList state function to update the state with said list... otherwise it's dummy data
   useEffect(() => {
-    const listFromStorage = localStorage.getItem('my-notes')
-    if (listFromStorage) {
-      const listFromStorageArray = JSON.parse(listFromStorage)
-      setNotesList(listFromStorageArray)
-    } else {
-      setNotesList(DUMMY_NOTES)
-    }
+    // const listFromStorage = localStorage.getItem('my-notes')
+    // if (listFromStorage) {
+    //   const listFromStorageArray = JSON.parse(listFromStorage)
+    //   setNotesList(listFromStorageArray)
+    // } else {
+    //   setNotesList(DUMMY_NOTES)
+    // }
+    getNotes()
   }, [])
 
   //useEffect hook to save updated notes changes to local storage by creating new variable to stringify notesList array...
@@ -31,17 +32,17 @@ function App() {
 
 
 
-  // const getNotes = async() => {
-  //   try {
-  //     const response = await axios.get(
-  //       `http://localhost:5000/notes`
-  //     )
-  //     //changing state the state variable of notesList to upload data from the API
-  //     setNotesList(response.data.notes)
-  //   } catch (err) {
-  //     console.error(err)
-  //   }
-  // }
+  const getNotes = async() => {
+    try {
+      const response = await axios.get(
+        `https://stickyquips.herokuapp.com/notes`
+      )
+      //changing state the state variable of notesList to upload data from the API
+      setNotesList(response.data.notes)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   //updating note item by mapping over each of the notes in the notesList array, then comparing...
   //the text/links based on their respective ids... if the updatedNote id matches the origin note id, it returns the update...
