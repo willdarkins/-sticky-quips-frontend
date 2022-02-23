@@ -31,7 +31,8 @@ function App() {
   }, [notesList])
 
 
-
+  //the axios.get call use to be 'http://localhost:5000/notes' which was our local backend server...
+  //now, i'm using the deployed backend site from Heroku to access my server
   const getNotes = async() => {
     try {
       const response = await axios.get(
