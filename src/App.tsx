@@ -11,12 +11,13 @@ function App() {
   const [notesList, setNotesList] = useState<INote[]>([])
   //state to handle showing and closing modal to write a note
   const [showNoteModal, setshowNoteModal] = useState(false);
+  //state to handle creating a new note by passing the partial INote with empty values to begin as the inital state
   const [newNote, setNewNote] = useState<Partial<INote>> ({
     text: '',
     link: ''
   })
 
-  //functions to close and open modals
+  //function to close modal and set text & link values to empty so there is no repeat
   const handleCloseNoteModal = () => {
     setNewNote({
       text: '',
@@ -24,6 +25,7 @@ function App() {
     })
     setshowNoteModal(false)
   }
+  //function to open modal
   const handleShowNoteModal = () => setshowNoteModal(true);
 
   //calling getNotesFromServer when app fires up first time 
@@ -51,6 +53,9 @@ function App() {
     setNotesList(updatedList) //updating state of notesList
   }
 
+  //adding a note to the database and creating a new note through the UI...
+  //using spread operator to return the entire notes list in the setNotesList state function, and the newly created, saved note...
+  //modal closes after creation
   const addNote = async () => {
     const savedNote = await createNote(newNote)
     setNotesList([...notesList, savedNote])
