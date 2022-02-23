@@ -23,3 +23,14 @@ export const getNotes = async() => {
       console.error(err)
     }
   }
+
+  export const deleteNote = async(noteToDeleteId: string) => {
+    try {
+      const URL = `${NOTES_API_URL}/${noteToDeleteId}`
+      const response = await axios.delete(URL)
+      //returning the response with data and notes
+      return response.data.reply
+    } catch (err) {
+      console.error(err)
+    }
+  }

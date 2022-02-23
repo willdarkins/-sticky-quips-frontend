@@ -6,10 +6,11 @@ import './Note.css'
 type Props = {
     note: INote;
     onNoteUpdate: (note: INote) => void;
+    onNoteDelete: (note: INote) => void;
 }
 
 //the FC(Functional Component) will take in the Props type and de-construct the note property to pass all the info from INote
-const Note: FC<Props> = ({ note, onNoteUpdate }) => {
+const Note: FC<Props> = ({ note, onNoteUpdate, onNoteDelete }) => {
     const [ isFocused, setIsFocused ] = useState(false)
     //function to grab textcontent from note after user clicks out of div
     const noteTextUpdated = (event: FocusEvent<HTMLDivElement>) => {
@@ -29,7 +30,8 @@ const Note: FC<Props> = ({ note, onNoteUpdate }) => {
     };
     return (
         <div className={isFocused ? 'note note--focused' : 'note'}>
-            <div className='note__text'
+            <button onClick={() => onNoteDelete(note)} type="button" className="btn-close" aria-label="Close"></button>
+            <div className='note__text' 
                 onFocus={() => {
                     setIsFocused(true)
                 }}
