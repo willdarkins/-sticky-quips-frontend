@@ -11,6 +11,10 @@ function App() {
   const [notesList, setNotesList] = useState<INote[]>([])
   //state to handle showing and closing modal to write a note
   const [showNoteModal, setshowNoteModal] = useState(false);
+  const [newNote, setNewNote] = useState<Partial<INote>> ({
+    text: '',
+    link: ''
+  })
 
   //functions to close and open modals
   const handleCloseNoteModal = () => setshowNoteModal(false);
@@ -48,20 +52,36 @@ function App() {
       </Button>
       <Modal show={showNoteModal} onHide={handleCloseNoteModal}>
         <Modal.Header closeButton>
-          <Modal.Title></Modal.Title>
+          <Modal.Title>Add Quip</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <FloatingLabel controlId="floatingTextarea2" label="text">
             <Form.Control
+              onChange={(event) => {
+                const newVal = event.currentTarget.value;
+                setNewNote({
+                  ...newNote,
+                  text: newVal
+                })
+              }}
               as="textarea"
               placeholder="Write your quip!"
-              style={{ height: '100px' }}/>
+              style={{ height: '100px' }} />
           </FloatingLabel>
           <FloatingLabel
             controlId="floatingTextarea"
             label="link"
-            className="mb-3">
-            <Form.Control type="url" placeholder="Enter note link" />
+            className="mb-3 note-link">
+            <Form.Control
+              onChange={(event) => {
+                const newVal = event.currentTarget.value;
+                setNewNote({
+                  ...newNote,
+                  link: newVal
+                })
+              }}
+              type="url"
+              placeholder="Enter note link" />
           </FloatingLabel>
         </Modal.Body>
         <Modal.Footer>
