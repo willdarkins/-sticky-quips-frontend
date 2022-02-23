@@ -13,7 +13,7 @@ export const getNotes = async() => {
   }
 
   //post method that is using only the Partial of INote model due to the fact we DO NOT want the ID back in our response for the UI...
-  //the URL and newNote are then passed and returned using the 'note' property that's in the body response
+  //the URL and newNote are then passed and returned using the 'note' property that's in the body response 
   export const createNote = async(newNote: Partial<INote>) => {
     try {
       const response = await axios.post(NOTES_API_URL, newNote)
