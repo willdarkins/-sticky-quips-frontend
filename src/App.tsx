@@ -1,50 +1,23 @@
 import React from 'react';
-import axios from 'axios';
 import './App.css';
 import { useState, useEffect } from 'react';
 import Note from './components/Note/Note';
-import DUMMY_NOTES from './SEED_NOTES';
+import { getNotes } from './services/notesService';
 import INote from './interfaces/note.interface';
 
 function App() {
   const [notesList, setNotesList] = useState<INote[]>([])
 
-  //App component runs first time... BUT if the list from local storage is present we will parse that list...
-  //then use the setNotesList state function to update the state with said list... otherwise it's dummy data
-  //now calling getNotes 
+  //calling getNotesFromServer when app fires up first time 
   useEffect(() => {
-    // const listFromStorage = localStorage.getItem('my-notes')
-    // if (listFromStorage) {
-    //   const listFromStorageArray = JSON.parse(listFromStorage)
-    //   setNotesList(listFromStorageArray)
-    // } else {
-    //   setNotesList(DUMMY_NOTES)
-    // }
-    getNotes()
+    getNotesFromServer(); 
   }, [])
 
-  //useEffect hook to save updated notes changes to local storage by creating new variable to stringify notesList array...
-  //then set that variable in the local storage
-  // useEffect(() => {
-  //   console.log('saving to localstorage')
-  //   const notesListString = JSON.stringify(notesList)
-  //   localStorage.setItem('my-notes', notesListString)
-  // }, [notesList])
-
-
-  //the axios.get call use to be 'http://localhost:5000/notes' which was our local backend server...
-  //now, i'm using the deployed backend site from Heroku to access my server
-  const getNotes = async() => {
-    try {
-      const response = await axios.get(
-        `https://stickyquips.herokuapp.com/notes`
-      )
-      //changing state the state variable of notesList to upload data from the API
-      setNotesList(response.data.notes)
-    } catch (err) {
-      console.error(err)
-    }
-  }
+  //creating separate async function to call the axios.get method from the imported getNotes function in notesService
+  const getNotesFromServer = async() => {
+    const notes = await getNotes();
+    setNotesList(notes)
+  } 
 
   //updating note item by mapping over each of the notes in the notesList array, then comparing...
   //the text/links based on their respective ids... if the updatedNote id matches the origin note id, it returns the update...
