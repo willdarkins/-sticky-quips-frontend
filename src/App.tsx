@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Note from './components/Note/Note';
 import { getNotes } from './services/notesService';
 import INote from './interfaces/note.interface';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, FloatingLabel, Form, Modal } from 'react-bootstrap';
 
 function App() {
   //state to handle notes array
@@ -18,14 +18,14 @@ function App() {
 
   //calling getNotesFromServer when app fires up first time 
   useEffect(() => {
-    getNotesFromServer(); 
+    getNotesFromServer();
   }, [])
 
   //creating separate async function to call the axios.get method from the imported getNotes function in notesService
-  const getNotesFromServer = async() => {
+  const getNotesFromServer = async () => {
     const notes = await getNotes();
     setNotesList(notes)
-  } 
+  }
 
   //updating note item by mapping over each of the notes in the notesList array, then comparing...
   //the text/links based on their respective ids... if the updatedNote id matches the origin note id, it returns the update...
@@ -43,20 +43,33 @@ function App() {
 
   return (
     <div className="App">
-       <Button variant="primary" onClick={handleShowNoteModal}>
-        Launch demo modal
+      <Button variant="primary" onClick={handleShowNoteModal}>
+        Write a sticky quip!
       </Button>
       <Modal show={showNoteModal} onHide={handleCloseNoteModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title></Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <FloatingLabel controlId="floatingTextarea2" label="text">
+            <Form.Control
+              as="textarea"
+              placeholder="Write your quip!"
+              style={{ height: '100px' }}/>
+          </FloatingLabel>
+          <FloatingLabel
+            controlId="floatingTextarea"
+            label="link"
+            className="mb-3">
+            <Form.Control type="url" placeholder="Enter note link" />
+          </FloatingLabel>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseNoteModal}>
             Close
           </Button>
           <Button variant="primary" onClick={handleCloseNoteModal}>
-            Save Changes
+            Create
           </Button>
         </Modal.Footer>
       </Modal>
