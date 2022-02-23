@@ -11,6 +11,7 @@ function App() {
 
   //App component runs first time... BUT if the list from local storage is present we will parse that list...
   //then use the setNotesList state function to update the state with said list... otherwise it's dummy data
+  //now calling getNotes 
   useEffect(() => {
     // const listFromStorage = localStorage.getItem('my-notes')
     // if (listFromStorage) {
@@ -24,11 +25,11 @@ function App() {
 
   //useEffect hook to save updated notes changes to local storage by creating new variable to stringify notesList array...
   //then set that variable in the local storage
-  useEffect(() => {
-    console.log('saving to localstorage')
-    const notesListString = JSON.stringify(notesList)
-    localStorage.setItem('my-notes', notesListString)
-  }, [notesList])
+  // useEffect(() => {
+  //   console.log('saving to localstorage')
+  //   const notesListString = JSON.stringify(notesList)
+  //   localStorage.setItem('my-notes', notesListString)
+  // }, [notesList])
 
 
   //the axios.get call use to be 'http://localhost:5000/notes' which was our local backend server...
