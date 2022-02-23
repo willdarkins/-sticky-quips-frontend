@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { useState, useEffect } from 'react';
 import Note from './components/Note/Note';
-import { getNotes, createNote, deleteNote } from './services/notesService';
+import { getNotes, createNote, deleteNote, updateNote } from './services/notesService';
 import INote from './interfaces/note.interface';
 import { Button, FloatingLabel, Form, Modal } from 'react-bootstrap';
 
@@ -42,11 +42,11 @@ function App() {
   //updating note item by mapping over each of the notes in the notesList array, then comparing...
   //the text/links based on their respective ids... if the updatedNote id matches the origin note id, it returns the update...
   //otherwise, the un-edited notes are returned to the array... we then use the setNotesList function from useState to update the array state
-  const updateNoteItem = (updatedNote: INote) => {
-    //temporary variable
+  const updateNoteItem = async (updatedNote: INote) => {
+    const noteFromServer = await updateNote(updatedNote)
     const updatedList = notesList.map((noteItem: INote) => {
-      if (noteItem._id === updatedNote._id) {
-        return updatedNote
+      if (noteItem._id === noteFromServer._id) {
+        return noteFromServer
       }
       return noteItem
     })
