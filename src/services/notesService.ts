@@ -34,3 +34,13 @@ export const getNotes = async() => {
       console.error(err)
     }
   }
+
+  export const updateNote = async(newNote: Partial<INote>) => {
+    try {
+      const response = await axios.put(NOTES_API_URL, newNote)
+      //returning the response with data and notes
+      return response.data.note
+    } catch (err) {
+      console.error(err)
+    }
+  }

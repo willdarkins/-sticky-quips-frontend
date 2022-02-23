@@ -78,8 +78,8 @@ function App() {
 
   return (
     <div className="App">
-      <Button variant="primary" onClick={handleShowNoteModal}>
-        Write a sticky quip!
+      <Button className='add-button' variant="dark" onClick={handleShowNoteModal}>
+        <div className='add-button-text'>+</div>
       </Button>
       <Modal show={showNoteModal} onHide={handleCloseNoteModal}>
         <Modal.Header closeButton>
