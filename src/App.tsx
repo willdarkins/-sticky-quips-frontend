@@ -127,11 +127,12 @@ function App() {
         </Modal.Footer>
       </Modal>
       <div className="notes-list">
-        {notesList.map((noteItem, index) => {
+        {notesList.length >= 1 ? notesList.map((noteItem, index) => {
           return (
             <Note note={noteItem} onNoteUpdate={updateNoteItem} onNoteDelete={delteNoteItem} key={index} />
           )
-        })}
+        }):
+        <h1>There are no Sticky Quips to display! 🤷‍♂️</h1>}
       </div>
     </div>
   );
