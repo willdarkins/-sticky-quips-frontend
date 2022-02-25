@@ -33,7 +33,11 @@ const NavBar = () => {
         </Modal.Header>
         <Modal.Body>This is an application inspired by an <a href='https://www.youtube.com/watch?v=tPsnzxE-9Gc' target='blank' rel='noopener noreferrer'>episode of The Office </a>
          where you can keep track of thoughts and ideas, attach links to those thoughts/ideas, and get on with your day! Get started by hitting the
-        black "+" button in the bottom right corner. Enjoy!
+        black "+" button in the bottom right corner.<br/>
+        <br/>
+        You can edit the notes by clikcing inside. Hit the "X" in the top right of each note to delte <br/>
+        <br/>
+        Enjoy!
         </Modal.Body>
         <Modal.Footer>
         </Modal.Footer>
