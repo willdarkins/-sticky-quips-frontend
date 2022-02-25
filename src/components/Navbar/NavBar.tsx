@@ -1,8 +1,11 @@
 import React from 'react'
+import '../Navbar/NavBar.css'
 
 const NavBar = () => {
   return (
-    <div>index</div>
+    <div className='nav-wrapper'>
+
+    </div>
   )
 }
 
