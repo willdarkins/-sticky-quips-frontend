@@ -5,6 +5,7 @@ import Note from './components/Note/Note';
 import { getNotes, createNote, deleteNote, updateNote } from './services/notesService';
 import INote from './interfaces/note.interface';
 import { Button, FloatingLabel, Form, Modal } from 'react-bootstrap';
+import NavBar from './components/Navbar/NavBar';
 
 function App() {
   //state to handle notes array
@@ -78,6 +79,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar />
       <Button className='add-button' variant="dark" onClick={handleShowNoteModal}>
         <div className='add-button-text'>+</div>
       </Button>
