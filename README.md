@@ -5,7 +5,7 @@
 A note taking applications that provides user the experience of writing sticky notes with short despcritions and links. There are varying colors to the notes,
 and each stored in a cloud database.
 
-Please follow **[THIS LINK](https://budget-tracker-darkins-v2.herokuapp.com/)** to the deployed application.
+Please follow **[THIS LINK](https://willdarkins.github.io/sticky-quips-frontend/)** to the deployed application.
 
 ![sticky-quips_example](https://user-images.githubusercontent.com/84754257/155663969-3fe57451-b97d-45af-8ca6-7bc1eb6631a5.gif)
 
