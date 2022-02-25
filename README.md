@@ -23,72 +23,21 @@ Please follow **[THIS LINK](https://budget-tracker-darkins-v2.herokuapp.com/)** 
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 ## Installation
 <br>
 
-- In the Github repository, copy the SSH key link to clone onto your local device
-- Open the project in your code editor of choice and enter the following command in console:
-  - `npm i`
-  - The following dependencies will being to run:
-    - `compression` - `express` - `mongoose` - `morgan`
-- Upon deployment of the application there should be an option to download the progressive web app version to your desktop:
-  - The option should be available in the address bar
-- You'll be promted to install the Budget Tracker application. Select Open, navigate to your desktop, then click on the available icon to open the application.
-- A corresponding web manifest informs the browser about this PWA and how it should behave:
+#`npm start`
 
-```json
-{
-    "name": "Budget Tracker",
-    "short_name": "B-Track",
-    "icons": [
-        {
-            "src": "/icons/icon-72x72.png",
-            "sizes": "72x72",
-            "type": "image/png"
-        },
-        {
-            "src": "/icons/icon-96x96.png",
-            "sizes": "96x96",
-            "type": "image/png"
-        },
-        {
-            "src": "/icons/icon-128x128.png",
-            "sizes": "128x128",
-            "type": "image/png"
-        },
-        {
-            "src": "/icons/icon-152x152.png",
-            "sizes": "152x152",
-            "type": "image/png"
-        },
-        {
-            "src": "/icons/icon-144x144.png",
-            "sizes": "144x144",
-            "type": "image/png"
-        },
-        {
-            "src": "/icons/icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/icons/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "start_url": "/",
-    "display": "standalone"
-}
-```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
 ## Usage
 
 - Users can keep track of their finances with a running total located at the top of the screen
