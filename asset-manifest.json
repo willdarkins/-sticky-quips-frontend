@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/sticky-quips-frontend/static/css/main.f0d76a43.css",
-    "main.js": "/sticky-quips-frontend/static/js/main.b2e16bcc.js",
+    "main.css": "/sticky-quips-frontend/static/css/main.93fd5f9f.css",
+    "main.js": "/sticky-quips-frontend/static/js/main.01e0c3d5.js",
     "static/js/787.e23e23d2.chunk.js": "/sticky-quips-frontend/static/js/787.e23e23d2.chunk.js",
     "index.html": "/sticky-quips-frontend/index.html",
-    "main.f0d76a43.css.map": "/sticky-quips-frontend/static/css/main.f0d76a43.css.map",
-    "main.b2e16bcc.js.map": "/sticky-quips-frontend/static/js/main.b2e16bcc.js.map",
+    "main.93fd5f9f.css.map": "/sticky-quips-frontend/static/css/main.93fd5f9f.css.map",
+    "main.01e0c3d5.js.map": "/sticky-quips-frontend/static/js/main.01e0c3d5.js.map",
     "787.e23e23d2.chunk.js.map": "/sticky-quips-frontend/static/js/787.e23e23d2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0d76a43.css",
-    "static/js/main.b2e16bcc.js"
+    "static/css/main.93fd5f9f.css",
+    "static/js/main.01e0c3d5.js"
   ]
 }
